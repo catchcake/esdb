@@ -1,5 +1,6 @@
 # The directory Mix will write compiled artifacts to.
 /_build/
+/logs/
 
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
@@ -19,6 +20,10 @@ erl_crash.dump
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
 
+*.beam
+/config/*.secret.exs
+.elixir_ls/
+
 # Ignore package tarball (built via "mix hex.build").
 esdb-*.tar
 
@@ -36,3 +41,24 @@ npm-debug.log
 *.db
 *.db-*
 
+# Backup
+*~
+
+# Ignore dialyzer tables
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
+
+tmp/
+data/
+.env*
+.env/
+.vimrc
+.projections.json
+.vscode/
+
+# tags
+tags
+tags.*
+*.tags
+
+.DS_Store
