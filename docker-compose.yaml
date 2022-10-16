@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  esdb:
+    image: esdb-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      SECRET_KEY: ${SECRET_KEY}
+      ERL_AFLAGS: ${ERL_AFLAGS}
+    ports:
+      - "127.0.0.1:4000:4000"
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./db:/usr/src/app/db
+      - ./tmp/erlang-history:/root/.cache/erlang-history
+      - ./config:/usr/src/app/config
+      - ./lib:/usr/src/app/lib
+      - ./priv:/usr/src/app/priv
+      - ./mix.exs:/usr/src/app/mix.exs
+      - ./mix.lock:/usr/src/app/mix.lock
+      - ./test:/usr/src/app/test
+      - elixir_build:/usr/src/app/_build
+      - elixir_deps:/usr/src/app/deps
+      - elixir_dialyzer:/usr/src/app/priv/plts
+
+volumes:
+  elixir_build:
+  elixir_deps:
+  elixir_dialyzer:
