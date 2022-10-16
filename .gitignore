@@ -49,7 +49,7 @@ npm-debug.log
 /priv/plts/*.plt.hash
 
 tmp/
-data/
+db/
 .env*
 .env/
 .vimrc
